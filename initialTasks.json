@@ -1,0 +1,12 @@
+{
+  "tasks": [
+    {"done": false, "text": "Enter couple of new todo items"},
+    {"done": false, "text": "Check a task as done"},
+    {"done": false, "text": "Open resulting kuoll record"},
+    {"done": false, "text": "Visit Kuoll ToDo Sample"},
+
+    {"done": false, "text": "Install Kuoll to my webapp"},
+
+    {"done": true, "text": "Visit Kuoll ToDo Sample"}
+  ]
+}
