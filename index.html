@@ -49,6 +49,7 @@
         }
         :checked+.plainInput:focus {
             text-decoration: none;
+            opacity: 1;
         }
 
     </style>
@@ -71,8 +72,8 @@
 
                 <div class="task">
                     <input type="checkbox" class="checkboxInput" disabled style="visibility: hidden;">
-                    <input value="Create new task" type="button" style="margin-left: 17px;" id="createNewTask"
-                           class="btn btn-primary ">
+                    <button  type="button" style="margin-left: 17px;" id="createNewTask"
+                           class="btn btn-link "> <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span> Create new task</button>
                 </div>
 
                 <p></p>
