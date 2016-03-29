@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Todolist Sample with Kuoll Script Installed</title>
 
-    <link rel="shortcut icon apple-itouch-icon" href="/resources/img/cat.png">
     <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/ljfpdodjbnkpbaenppoiifjkdlhfjcgn">
     <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -71,9 +70,9 @@
                 </div>
 
                 <div class="task">
-                    <input type="checkbox" class="checkboxInput" disabled style="visibility: hidden;">
-                    <button  type="button" style="margin-left: 17px;" id="createNewTask"
-                           class="btn btn-link "> <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span> Create new task</button>
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true" style="top: 2px; color: #23527c;"></span>
+                    <button  type="button" style="margin-left: 5px;" id="createNewTask"
+                           class="btn btn-link "> Create new task</button>
                 </div>
 
                 <p></p>
@@ -143,8 +142,7 @@
 
 <script>
     $(function () {
-        function installListeners() {
-            var $plainInput = $(".plainInput");
+        function installTaskListeners($plainInput) {
             $plainInput.mouseover(function () {
                 $(this).removeClass("plainInputDefault");
             });
@@ -155,6 +153,11 @@
                 $(this).select();
             });
             $plainInput.addClass("plainInputDefault");
+        }
+
+        function installListeners() {
+            var $plainInput = $(".plainInput");
+            installTaskListeners($plainInput);
         }
 
         function reloadTaskList() {
@@ -169,6 +172,7 @@
             var copy = $invisibleTaskTemplate.clone(false);
             copy.attr("id", null);
             copy.css("display", "block");
+            installTaskListeners(copy.find(".plainInput"));
             $invisibleTaskTemplate.after(copy);
         }
 
