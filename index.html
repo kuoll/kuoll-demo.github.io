@@ -172,7 +172,10 @@
             var copy = $invisibleTaskTemplate.clone(false);
             copy.attr("id", null);
             copy.css("display", "block");
+
+            // comment this line and have new task onhover highlighting missing
             installTaskListeners(copy.find(".plainInput"));
+
             $invisibleTaskTemplate.after(copy);
         }
 
