@@ -125,19 +125,32 @@
 
 
 <script type="text/javascript">
-    var origin = window.location.search.indexOf("stage") !== -1 ? "//kuoll-prod-vlad.appspot.com" : "//www.kuoll.com";
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+        return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+
+    var origin;
+    var API_KEY = getParameterByName("stage-key");
+    if (!API_KEY) {
+        API_KEY = "32dae8f7-c33c-4127-bb7e-a07c75829185";
+        origin = "//www.kuoll.com";
+    } else {
+        origin = "//kuoll-prod-vlad.appspot.com";
+    }
     document.writeln('<script type="text/javascript" src="' + origin + '/cdn/embedScript/prod/bootloader.js"><\/script>');
 </script>
 
 <script>
     kuoll.startRecord({
-        API_KEY: "32dae8f7-c33c-4127-bb7e-a07c75829185",
+        API_KEY: API_KEY,
         showIcon: false,
         userId: 1 // userId in your system, optional
     });
 </script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
