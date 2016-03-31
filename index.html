@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Todolist Sample with Kuoll Script Installed</title>
 
+    <link rel="shortcut icon apple-itouch-icon" href="//www.kuoll.com//resources/img/cat.png">
     <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/ljfpdodjbnkpbaenppoiifjkdlhfjcgn">
     <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -42,11 +43,13 @@
         #invisibleTaskTemplate {
             display: none;
         }
-        :checked+.plainInput {
+
+        :checked + .plainInput {
             text-decoration: line-through;
             opacity: .6;
         }
-        :checked+.plainInput:focus {
+
+        :checked + .plainInput:focus {
             text-decoration: none;
             opacity: 1;
         }
@@ -71,8 +74,9 @@
 
                 <div class="task">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true" style="top: 2px; color: #23527c;"></span>
-                    <button  type="button" style="margin-left: 5px;" id="createNewTask"
-                           class="btn btn-link "> Create new task</button>
+                    <button type="button" style="margin-left: 5px;" id="createNewTask"
+                            class="btn btn-link "> Create new task
+                    </button>
                 </div>
 
                 <p></p>
@@ -85,7 +89,8 @@
 
                     <button id="reloadTaskList" class="btn btn-default">Reload the task list</button>
 
-                    &nbsp;&nbsp;<a href="#" id="recordingLink" class="btn btn-default recordingLink" target="_blank">See Kuoll record</a>
+                    &nbsp;&nbsp;<a href="#" id="recordingLink" class="btn btn-default recordingLink" target="_blank">See
+                    Kuoll record</a>
 
                 </p>
 
@@ -102,26 +107,28 @@
                                 <p>Please, describe a problem</p>
 
                                 <p>
-                                    <textarea class="form-control" rows="4" placeholder="Please, describe a problem"></textarea>
+                                    <textarea class="form-control" rows="4"
+                                              placeholder="Please, describe a problem"></textarea>
                                 </p>
 
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal" id="submitSupportIssue">Report</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                        id="submitSupportIssue">Report
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <p>Powered by <a href="http://www.kuoll.com/" >Kuoll</a>. Quick start <a href="http://www.kuoll.com/quick-start.html" title="Kuoll get started guide">guide</a>.
+                <p>Powered by <a href="http://www.kuoll.com/">Kuoll</a>. Quick start <a
+                        href="http://www.kuoll.com/quick-start.html" title="Kuoll get started guide">guide</a>.
                 </p>
             </div>
         </div>
     </div>
 </div>
-
-
 
 
 <script type="text/javascript">
@@ -144,6 +151,9 @@
 </script>
 
 <script>
+    if (getParameterByName("restartRecord")) {
+        kuoll.finishRecord();
+    }
     kuoll.startRecord({
         API_KEY: API_KEY,
         showIcon: false,
