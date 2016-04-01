@@ -132,15 +132,21 @@
         return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
 
-    var origin;
-    var API_KEY = getParameterByName("stage-key");
-    if (!API_KEY) {
-        API_KEY = "32dae8f7-c33c-4127-bb7e-a07c75829185";
-        origin = "//www.kuoll.com";
+    var API_KEY, scriptUrl;
+	var stageKey = getParameterByName("stage-key");
+	var devKey = getParameterByName("dev-key");
+	if (stageKey) {
+		API_KEY = stageKey;
+		scriptUrl = "//kuoll-prod-vlad.appspot.com/cdn/embedScript/prod/bootloader.js";
+	} else if (devKey) {
+		API_KEY = devKey;
+		scriptUrl = "http://localhost:8080/unminified/cdn/embedScript/dev/bootloader.js";
     } else {
-        origin = "//kuoll-prod-vlad.appspot.com";
-    }
-    document.writeln('<script type="text/javascript" src="' + origin + '/cdn/embedScript/prod/bootloader.js"><\/script>');
+        API_KEY = "32dae8f7-c33c-4127-bb7e-a07c75829185";
+        scriptUrl = "//www.kuoll.com/cdn/embedScript/prod/bootloader.js";
+	}
+	
+    document.writeln('<script type="text/javascript" src="' + scriptUrl + '"><\/script>');
 </script>
 
 <script>
