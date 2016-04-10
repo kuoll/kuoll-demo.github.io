@@ -40,6 +40,22 @@
             display: none;
         }
 
+        .task: {
+
+        }
+
+        .dragIcon {
+            margin-left: -30px;
+            display: inline-block;
+            width: 30px;
+            cursor: move;
+            opacity: 0.7;
+        }
+
+        .dragIcon:hover {
+            opacity: 1;
+        }
+
         #invisibleTaskTemplate {
             display: none;
         }
@@ -66,9 +82,17 @@
             <div class="col-sm-12">
                 <h1>Todolist Sample</h1>
 
+                <p>This todo list demo app is created to show how <a href="http://www.kuoll.com/">Kuoll</a> can
+                    help you improve your web application. Kuoll allows developers to fix production customer issues as
+                    easy as on developer's own computer.
+
+                <p>Automatically get complete recording of user actions, network requests and web page changes
+                    each time your customer faces defect in your web application.
+
+
                 <h3>Here is Sample Task List</h3>
 
-                <div id="items" class="form-horizontal">
+                <div id="taskList" class="form-horizontal">
 
                 </div>
 
@@ -152,7 +176,7 @@
         API_KEY = "32dae8f7-c33c-4127-bb7e-a07c75829185";
         scriptUrl = "//www.kuoll.com/cdn/embedScript/prod/bootloader.js";
     }
-    
+
     document.writeln('<script type="text/javascript" src="' + scriptUrl + '"><\/script>');
 </script>
 
@@ -196,7 +220,7 @@
 
         function reloadTaskList() {
             $.ajax("initialTaskList.html").done(function (data) {
-                $("#items").html(data);
+                $("#taskList").html(data);
                 installListeners();
             });
         }
