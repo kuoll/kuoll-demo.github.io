@@ -136,7 +136,7 @@
                                 <p>Please, describe a problem</p>
 
                                 <p>
-                                    <textarea class="form-control" rows="4"
+                                    <textarea class="form-control" id="report-description" rows="4"
                                               placeholder="Please, describe a problem"></textarea>
                                 </p>
 
@@ -240,7 +240,7 @@
         $("#reloadTaskList").click(reloadTaskList);
         $("#createNewTask").click(createNewTask);
         $("#submitSupportIssue").click(function () {
-            var issue = kuoll.createIssue();
+            var issue = kuoll.createIssue(null, $("#report-description").val());
             $("#recordingLink").attr("href", "https://www.kuoll.com/play.html?recordCode=" + issue.recordCode).show();
         });
 
