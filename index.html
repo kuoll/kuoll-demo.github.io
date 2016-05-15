@@ -14,7 +14,7 @@
 
     <style>
         .task {
-            margin-bottom: 3px;
+            padding-bottom: 3px;
         }
 
         .plainInput {
@@ -37,7 +37,6 @@
             text-align: right;
             position: relative;
             top: -2px;
-
         }
 
         .recordingLink {
@@ -45,7 +44,6 @@
         }
 
         .dragIcon {
-            margin-left: -30px;
             display: inline-block;
             width: 30px;
             cursor: move;
@@ -71,8 +69,8 @@
         }
 
         .task > i.fa-lock {
-            margin-left: -50px;
-            width: 48px;
+            margin-left: -20px;
+            width: 16px;
             cursor: help;
         }
 
@@ -198,6 +196,7 @@
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="resources/Sortable.js"></script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
         integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
@@ -220,6 +219,13 @@
             $.ajax("initialTaskList.html").done(function (data) {
                 $("#taskList").html(data);
                 installListeners();
+                createSortable();
+            });
+        }
+
+        function createSortable() {
+            Sortable.create($("#taskList")[0], {
+                animation: 150
             });
         }
 
@@ -231,6 +237,8 @@
 
             // comment this line and have new task onhover highlighting missing
             installTaskListeners(copy.find(".plainInput"));
+
+            createSortable();
 
             $invisibleTaskTemplate.after(copy);
         }
