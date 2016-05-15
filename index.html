@@ -8,7 +8,6 @@
     <link rel="shortcut icon apple-itouch-icon" href="//www.kuoll.com//resources/img/cat.png">
     <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/ljfpdodjbnkpbaenppoiifjkdlhfjcgn">
     <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="resources/jquery-ui.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -46,6 +45,7 @@
         }
 
         .dragIcon {
+            margin-left: -30px;
             display: inline-block;
             width: 30px;
             cursor: move;
@@ -71,8 +71,8 @@
         }
 
         .task > i.fa-lock {
-            margin-left: -20px;
-            width: 16px;
+            margin-left: -50px;
+            width: 48px;
             cursor: help;
         }
 
@@ -198,7 +198,6 @@
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-<script src="resources/jquery-ui.min.js"></script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
         integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
@@ -219,7 +218,7 @@
 
         function reloadTaskList() {
             $.ajax("initialTaskList.html").done(function (data) {
-                $("#taskList").html(data).sortable();
+                $("#taskList").html(data);
                 installListeners();
             });
         }
@@ -232,8 +231,6 @@
 
             // comment this line and have new task onhover highlighting missing
             installTaskListeners(copy.find(".plainInput"));
-
-            $("#taskList").sortable();
 
             $invisibleTaskTemplate.after(copy);
         }
