@@ -20,14 +20,16 @@
     <input value="Go to &ldquo;Report an Issue&rdquo; page"
            class="form-control plainInput plainInputDefault">
 </div>
-<div class="task" draggable="true" >
+<div class="task kuoll-ignore" draggable="true" >
+    <i class="fa fa-lock" title="You can mark some elements as secret, so Kuoll will not record them. Check out documentation for details"></i>
     <span class="dragIcon"><i class="fa fa-bars"></i></span>
     <input type="checkbox" class="checkboxInput">
-    <input value="See how Kuoll record looks in real life"
+    <input value="Task with secret data. Nobody except the user should see this"
            class="form-control plainInput plainInputDefault">
 </div>
 
 <div class="task" id="invisibleTaskTemplate">
+    <span class="dragIcon"><i class="fa fa-bars"></i></span>
     <input type="checkbox" class="checkboxInput">
     <input value="One more task"
            class="form-control plainInput plainInputDefault">
