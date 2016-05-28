@@ -249,7 +249,7 @@
         $("#createNewTask").click(createNewTask);
         $("#submitSupportIssue").click(function () {
             var issue = kuoll.createIssue(null, $("#report-description").val());
-            $("#recordingLink").attr("href", "https://www.kuoll.com/play.html?recordCode=" + issue.recordCode).show();
+            $("#recordingLink").attr("href", "http://www.kuoll.com/play.html?recordCode=" + issue.recordCode).show();
         });
 
     });
